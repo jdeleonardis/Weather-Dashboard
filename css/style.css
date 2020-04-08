@@ -20,3 +20,22 @@ body {
 .searchdiv {
   background: whitesmoke;
 }
+
+.searchedCitiesTable {
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  background: white;
+}
+
+td {
+  padding: 10px;
+
+}
+
+tr {
+  border-style: solid;
+  border-color: lightgray;
+  border-width: thin;
+}
