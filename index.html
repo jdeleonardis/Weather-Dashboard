@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+  
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>  
+  
+  <!-- site specific stylesheet -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <title>Weather Dashboard</title>
+
+</head>
+
+<body>
+  <header>
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <!-- bootstrap container -->
+  <main class="container-fluid">
+    <!-- rows, columns in bootstrap.-->
+    <div class="row">
+      <section class="col-lg-3 searchdiv"> <!-- search input and saved searches-->
+        <h4>Search for a City:</h4>
+        <div class="input-group col-md-12">
+          <input class="form-control py-2 border-right-0 border"  id="search-input" type="search" value="city">
+          <span class="input-group-append">
+            <button class="btn btn-primary border-left-0 border" type="button">
+                  <i class="fas fa-search"></i>
+            </button>
+          </span>
+        </div>        
+        
+      </section>
+
+      <section class="col-lg-9"> <!-- weather panel -->
+        <!-- <p>Hello!  My name is Jay DeLeonardis.  I am a web developer from Hillsborough, North Carolina.  I specialize in making the most amazing websites.  Can't you tell?</p> 
+        <p>Duis suscipit mi magna, vel faucibus dui malesuada vel. Donec efficitur, lorem venenatis egestas volutpat, ipsum leo feugiat est, nec fringilla nisl tellus eu erat. Pellentesque ac purus ultrices, feugiat lorem ac, rhoncus neque. Suspendisse diam tellus, fermentum vitae erat at, sodales hendrerit ipsum. Vivamus commodo justo nec mi malesuada fermentum. Fusce accumsan vel eros quis rutrum. Nunc egestas finibus eros, et eleifend metus fringilla eget.</p>
+        <p>Sed accumsan sem sapien, quis dignissim dui laoreet at. Fusce a finibus leo, vel semper libero. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In sagittis et tortor ac consequat. Vestibulum nec pretium odio, pretium venenatis mauris. Aenean at tortor sed purus pharetra cursus. Donec in vehicula nunc. Morbi euismod placerat odio, sit amet luctus eros tempor vel. Donec dapibus, elit sit amet ultrices bibendum, mi eros ullamcorper ligula, egestas volutpat nisi risus sit amet nisi. Nunc arcu enim, varius vitae pharetra vitae, placerat et sapien. Aliquam a mi finibus, consequat est in, sollicitudin quam. Sed efficitur eros ligula, hendrerit aliquet felis fermentum ac. Curabitur tempus at eros vitae pulvinar.</p> -->
+      </section>      
+    </div>         
+ 
+  </div>
+  
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- site specific js -->
+  <script src="script/script.js"></script>
+</body>
+
+</html>

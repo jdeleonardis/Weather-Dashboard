@@ -1,0 +1,22 @@
+header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 75px;
+  margin: auto;
+  padding: 13px 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+.container-fluid {
+  /* background: red; */
+}
+
+.searchdiv {
+  background: whitesmoke;
+}
