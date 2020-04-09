@@ -39,7 +39,8 @@ $(document).ready(function() {
             getInputCity()
         }
 
-        alert(inputCity);
+        //get here, there should be a city to search with
+        //alert(inputCity);
 
     };
 

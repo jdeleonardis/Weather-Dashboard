@@ -30,7 +30,7 @@
   <main class="container-fluid">
     <!-- rows, columns in bootstrap.-->
     <div class="row">
-      <section class="col-lg-3 searchdiv"> <!-- search input and saved searches-->
+      <section class="col-lg-3 searchdiv"> <!-- search input and saved searches - left hand side-->
         <h4>Search for a City:</h4>
         <div class="input-group col-md-12">
           <input class="form-control py-2 border-right-0 border"  id="search-input" type="search" value="City">          <span class="input-group-append">
@@ -46,10 +46,86 @@
         </table>
       </section>
 
-      <section class="col-lg-9"> <!-- weather panel -->
-        <!-- <p>Hello!  My name is Jay DeLeonardis.  I am a web developer from Hillsborough, North Carolina.  I specialize in making the most amazing websites.  Can't you tell?</p> 
-        <p>Duis suscipit mi magna, vel faucibus dui malesuada vel. Donec efficitur, lorem venenatis egestas volutpat, ipsum leo feugiat est, nec fringilla nisl tellus eu erat. Pellentesque ac purus ultrices, feugiat lorem ac, rhoncus neque. Suspendisse diam tellus, fermentum vitae erat at, sodales hendrerit ipsum. Vivamus commodo justo nec mi malesuada fermentum. Fusce accumsan vel eros quis rutrum. Nunc egestas finibus eros, et eleifend metus fringilla eget.</p>
-        <p>Sed accumsan sem sapien, quis dignissim dui laoreet at. Fusce a finibus leo, vel semper libero. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In sagittis et tortor ac consequat. Vestibulum nec pretium odio, pretium venenatis mauris. Aenean at tortor sed purus pharetra cursus. Donec in vehicula nunc. Morbi euismod placerat odio, sit amet luctus eros tempor vel. Donec dapibus, elit sit amet ultrices bibendum, mi eros ullamcorper ligula, egestas volutpat nisi risus sit amet nisi. Nunc arcu enim, varius vitae pharetra vitae, placerat et sapien. Aliquam a mi finibus, consequat est in, sollicitudin quam. Sed efficitur eros ligula, hendrerit aliquet felis fermentum ac. Curabitur tempus at eros vitae pulvinar.</p> -->
+      <section class="col-lg-9"> <!-- weather panel - right hand side -->
+        <!-- Today's weather -->
+        <div class="row">
+          <section class="col-lg-12"> <!-- todays weather-->
+            <div class="card" id="todays-weather">
+              <div class="card-body">
+                <h4 class="card-title">Atlanta (4/20/2020) &nbsp;<i class="fas fa-sun weathericon"></i></h4>
+                <p class="card-text">Temperature: 91.05 °F</p>
+                <p class="card-text">Humidity: 43%</p>
+                <p class="card-text">Wind Speed: 4.7 MPH</p>
+                <p class="card-text">UV Index: <span class="moderateuv">4.89</span></p>                
+              </div>
+            </div>
+          </section>            
+        </div>
+        <!-- 5 day forecast words -->
+        <div class="row">
+          <section class="col-lg-12">
+            <h4>5-Day Forecast:</h4>
+          </section>
+        </div>
+        <!-- 5 day forecast cards -->
+        <div class="row">
+          <section class="col-lg-2">
+            <div class="card bg-primary text-white card1">
+                <div class="card-body">
+                  <h5 class="card-title">04/20/2020</h5>
+                  <i class="fas fa-sun weathericon"></i>
+                  <p class="card-text">Temp: 91.05 °F</p>  <!-- alt 0 1 7 6-->
+                  <p class="card-text">Humidity: 43%</p>                  
+                </div>
+            </div>
+          </section>
+
+          <section class="col-lg-2">
+            <div class="card bg-primary text-white card2">
+              <div class="card-body">
+                <h5 class="card-title">04/20/2020</h5>
+                <i class="fas fa-sun weathericon"></i>
+                <p class="card-text">Temp: 91.05 °F</p>  <!-- alt 0 1 7 6-->
+                <p class="card-text">Humidity: 43%</p>                  
+              </div>
+            </div>
+          </section>
+
+          <section class="col-lg-2">
+            <div class="card bg-primary text-white card3">
+              <div class="card-body">
+                <h5 class="card-title">04/20/2020</h5>
+                <i class="fas fa-sun weathericon"></i>
+                <p class="card-text">Temp: 91.05 °F</p>  <!-- alt 0 1 7 6-->
+                <p class="card-text">Humidity: 43%</p>                  
+              </div>
+            </div>
+          </section>
+
+          <section class="col-lg-2">
+            <div class="card bg-primary text-white card4">
+              <div class="card-body">
+                <h5 class="card-title">04/20/2020</h5>
+                <i class="fas fa-sun weathericon"></i>
+                <p class="card-text">Temp: 91.05 °F</p>  <!-- alt 0 1 7 6-->
+                <p class="card-text">Humidity: 43%</p>                  
+              </div>
+            </div>
+          </section>
+
+          <section class="col-lg-2">
+            <div class="card bg-primary text-white card5">
+              <div class="card-body">
+                <h5 class="card-title">04/20/2020</h5>
+                <i class="fas fa-sun weathericon"></i>
+                <p class="card-text">Temp: 91.05 °F</p>  <!-- alt 0 1 7 6-->
+                <p class="card-text">Humidity: 43%</p>                  
+              </div>
+            </div>
+          </section>
+
+        </div>        
+
       </section>      
     </div>         
  

@@ -13,8 +13,10 @@ body {
     line-height: 1;
   }
 
-.container-fluid {
-  /* background: red; */
+h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .searchdiv {
@@ -38,4 +40,31 @@ tr {
   border-style: solid;
   border-color: lightgray;
   border-width: thin;
+}
+
+#todays-weather {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.weathericon {
+  margin-bottom: 10px;
+}
+
+.gooduv {
+  background: green;
+  color: white;
+  padding: 2px 8px;
+}
+
+.moderateuv {
+  background: goldenrod;
+  color: white;
+  padding: 2px 8px;
+}
+
+.baduv {
+  background: red;
+  color: white;
+  padding: 2px 8px;
 }
