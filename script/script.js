@@ -41,8 +41,50 @@ $(document).ready(function() {
 
         //get here, there should be a city to search with
         //alert(inputCity);
+        buildTodaysWeather();
+        buildFiveDayForecast();
 
     };
+
+    //This function builds todays weather - the big section on the right
+    function buildTodaysWeather () {
+        $("#todays-weather").empty();
+        var newDiv = $("<div>").addClass("card-body");
+        var newH4 = $("<h4>",{class: "card-title", text: inputCity + " (04/20/2020) "});  //works with a variable for text
+        var newI = $("<i>").addClass("fas fa-sun weathericon");
+        newH4.append(newI);
+        var newP1 = $("<p>",{class: "card-text", text: "Temperature: 91.05 °F"}); //  alt 0 1 7 6
+        var newP2 = $("<p>",{class: "card-text", text: "Humidity: 43%"});
+        var newP3 = $("<p>",{class: "card-text", text: "Wind Speed: 4.7 MPH"});                
+        var newP4 = $("<p>",{class: "card-text", text: "UV Index: "}); 
+        var newSpan = $("<span>",{class: "moderateuv", text: "5.40"});                        
+        newP4.append(newSpan);
+        newDiv.append(newH4, newP1, newP2, newP3, newP4);
+        $("#todays-weather").append(newDiv);
+    }
+
+    //this function builds the five day forecast
+    function buildFiveDayForecast () {
+        $("#fivedaywords").empty();
+        $("#fivedaysection").empty();        
+
+        $("#fivedaywords").text("5-Day Forecast");
+
+        for (i = 0; i < 5; i++) {
+            var sectionNbr = "#section" + i;
+            var newSection = $("<section>",{class: "col-lg-2", id: sectionNbr});           
+            var newCard = $("<div>").addClass("card bg-primary text-white");            
+            var newDiv = $("<div>").addClass("card-body");
+            var newH5 = $("<h5>",{class: "card-title", text: "04/20/2020"});  //works with a variable for text
+            var newI = $("<i>").addClass("fas fa-sun weathericon");
+            var newP1 = $("<p>",{class: "card-text", text: "Temp: 91.05 °F"}); //  alt 0 1 7 6
+            var newP2 = $("<p>",{class: "card-text", text: "Humidity: 43%"});
+            newDiv.append(newH5, newI, newP1, newP2);
+            $(newCard).append(newDiv);
+            $(newSection).append(newCard);
+            $("#fivedaysection").append(newSection);
+        }
+    }
 
     //*********ALL CODE FROM HERE DOWN RELATES TO SAVING CITY LIST, LAST CITY SEARCHED, ETC *******/
 
