@@ -40,58 +40,15 @@ $(document).ready(function() {
         if (needCity) {
             getInputCity()
         }
-
-        //get here, there should be a city to search with
-        //alert(inputCity);
-        //have to call three weather apis.  The current weather doesnt
-        //contain the uv information, but it DOES have the lat/long
-        //needed to call the UV url which DOES have the uv info.  Also,
-        //need to call the 5 day forecast
-
-        //current
-        //var currentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&appid=" + APIKey;
-
-        //5 day
-        //var todaysWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&appid=" + APIKey;
-
-        //uv
-        // var latValue = 34;
-        // var lonValue = -81.03        
-        // var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + latValue + "&lon=" + lonValue;
-        
-
-
-        
-        // $.ajax({
-        //     url: currentWeatherURL,
-        //     method: "GET"
-        //   }).then(function(todaysWeather) {
-        //     //   latValue = todaysWeather.coord.lat;
-        //     //   longValue = todaysWeather.coord.lon;
-        //     buildTodaysWeather(todaysWeather);
-        // });
-
-
-
-  
-
-        
-        // $.ajax({
-        //     url: fiveDayWeatherURL,
-        //     method: "GET"
-        //   }).then(function(fiveDaysWeather) {
-        // });
-
         buildTodaysWeather();
         buildFiveDayForecast();
-
     };
 
     //This function builds todays weather - the big section on the right
     //The function is expecting two things - the response object and the uv data
     //retrieved from the five day forecast API call.
     function buildTodaysWeather () {
-        var currentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&appid=" + APIKey;
+        var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&appid=" + APIKey;
 
         $.ajax({
             url: currentWeatherURL,
@@ -106,7 +63,7 @@ $(document).ready(function() {
             var newH4 = $("<h4>",{class: "card-title", text: inputCity + " (Current) "});  //works with a variable for text
             //get the icon and appened to the h4
             var icon =todaysWeather.weather[0].icon;
-            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png"
             var newI = $("<img>").attr("src", iconURL);            
             newH4.append(newI);
             
@@ -126,13 +83,13 @@ $(document).ready(function() {
             var latValue = todaysWeather.coord.lat;
             var lonValue = todaysWeather.coord.lon;
 
-            var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + latValue + "&lon=" + lonValue;
+            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + latValue + "&lon=" + lonValue;
 
             $.ajax({
                 url: uvURL,
                 method: "GET"
             }).then(function(uvWeather) {
-                console.log(uvWeather);
+                
                 var uvValue = uvWeather.value;
                 
                 //get the uv colors based on the uv index
@@ -146,7 +103,7 @@ $(document).ready(function() {
                 else if (uvValue < 8){
                     uvColor = "highuv"                    
                 }                
-                else if (uvValue < 8){
+                else if (uvValue < 11){
                     uvColor = "veryhighuv"                    
                 }                  
                 else {
@@ -166,25 +123,43 @@ $(document).ready(function() {
     //this function builds the five day forecast
     //function expects the five day forecast object
     function buildFiveDayForecast () {
-        $("#fivedaywords").empty();
-        $("#fivedaysection").empty();        
 
-        $("#fivedaywords").text("5-Day Forecast");
+        var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&appid=" + APIKey;
 
-        for (i = 0; i < 5; i++) {
-            var sectionNbr = "#section" + i;
-            var newSection = $("<section>",{class: "col-lg-2", id: sectionNbr});           
-            var newCard = $("<div>").addClass("card bg-primary text-white");            
-            var newDiv = $("<div>").addClass("card-body");
-            var newH5 = $("<h5>",{class: "card-title", text: "04/20/2020"});  //works with a variable for text
-            var newI = $("<i>").addClass("fas fa-sun weathericon");
-            var newP1 = $("<p>",{class: "card-text", text: "Temp: 91.05 °F"}); //  alt 0 1 7 6
-            var newP2 = $("<p>",{class: "card-text", text: "Humidity: 43%"});
-            newDiv.append(newH5, newI, newP1, newP2);
-            $(newCard).append(newDiv);
-            $(newSection).append(newCard);
-            $("#fivedaysection").append(newSection);
-        }
+        //get the 5 day forecast, and build 5 different cards
+        $.ajax({
+            url: fiveDayURL,
+            method: "GET"
+          }).then(function(fiveDaysWeather) {
+            console.log(fiveDaysWeather);
+            $("#fivedaywords").empty();
+            $("#fivedaysection").empty();        
+    
+            $("#fivedaywords").text("5-Day Forecast");
+    
+            for (i = 0; i < 40; i+=8) {
+                var sectionNbr = "#section" + i;
+                var newSection = $("<section>",{class: "col-lg-2", id: sectionNbr});           
+                var newCard = $("<div>").addClass("card bg-primary text-white");            
+                var newDiv = $("<div>").addClass("card-body");
+                var newH5 = $("<h5>",{class: "card-title", text: moment(fiveDaysWeather.list[i].dt_txt).format('MM/DD/YYYY')});
+                //get the weather icon and include it in the card
+                var icon =fiveDaysWeather.list[i].weather[0].icon;
+                var iconURL = "https://openweathermap.org/img/wn/" + icon + ".png"
+                var newI = $("<img>").attr("src", iconURL);  
+                //get temp and humidity too
+                var tempFromKelvin = (fiveDaysWeather.list[i].main.temp - 273.15) * 1.80 + 32
+                var newP1 = $("<p>",{class: "card-text", text: "Temp: " + tempFromKelvin.toFixed(1) + " °F"}); //  alt 0 1 7 6
+                var newP2 = $("<p>",{class: "card-text", text: "Humidity: " + fiveDaysWeather.list[i].main.humidity +"%"});
+                newDiv.append(newH5, newI, newP1, newP2);
+                $(newCard).append(newDiv);
+                $(newSection).append(newCard);
+                $("#fivedaysection").append(newSection);
+            }            
+
+        });
+
+
     }
 
     //*********ALL CODE FROM HERE DOWN RELATES TO SAVING CITY LIST, LAST CITY SEARCHED, ETC *******/
