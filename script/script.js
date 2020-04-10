@@ -24,7 +24,7 @@ $(document).ready(function() {
 
     //if a previously retrieved city is clicked in the table, then
     //set the input city variable, save the last city searched, and retrieve the weather.
-    //This is some wonky code I found by googling...appears to work correctly.
+    //This could should work on any td's already existing or added as the app is used.
     $(document).on("click","td", function(e){
         inputCity = e.target.innerHTML;
         saveLastCitySearched(inputCity);
@@ -40,6 +40,7 @@ $(document).ready(function() {
         if (needCity) {
             getInputCity()
         }
+        //AJAX and building cards.  Since asyncrhonous, I dont care which one loads first and second.
         buildTodaysWeather();
         buildFiveDayForecast();
     };
