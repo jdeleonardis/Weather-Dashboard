@@ -126,6 +126,7 @@ $(document).ready(function() {
     function buildFiveDayForecast () {
 
         var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&appid=" + APIKey;
+        
 
         //get the 5 day forecast, and build 5 different cards
         $.ajax({
@@ -137,8 +138,23 @@ $(document).ready(function() {
             $("#fivedaysection").empty();        
     
             $("#fivedaywords").text("5-Day Forecast");
+
+            //The information that comes back from the API can change slightly based on when it is called.  For example, 
+            //if I call the api on Day 1, 8AM, the 3PM element in the array would be [1].  If, however, I call the api on Day 1,
+            // at 8PM, the 3PM (15:00) element that is returned is day 2 3PM (15:00), element [5].  So, to try to stay consistent, I want to generate
+            //my 5 day forecast using the weather at 3PM each day...I want to get the first time that the 3PM (15:00) value
+            //appears, and go from there.
+            var element3PMFirstAppears = 0;
+            for (i = 0; i < 8; i++) {
+                if (fiveDaysWeather.list[i].dt_txt.includes("15:00:00")) {
+                    element3PMFirstAppears = i;
+                    break;
+                }
+            }
     
-            for (i = 0; i < 40; i+=8) {
+            //Get the 3pm element every day for the next 5 days, populate data, and build each of the 5 cards.  The api populates
+            //data for every 3 hours of a day, so the "i" incrementing by i is 24 hours from the previous i.
+            for (i = element3PMFirstAppears; i < 40; i+=8) {
                 var sectionNbr = "#section" + i;
                 var newSection = $("<section>",{class: "col-lg-2", id: sectionNbr});           
                 var newCard = $("<div>").addClass("card bg-primary text-white");            
