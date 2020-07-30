@@ -27,3 +27,12 @@ The dashboard should:
 Website can be accessed at: https://jdeleonardis.github.io/Weather-Dashboard/
 
 To use the website, enter a city name and press enter or click the search icon.  Additionally, a city can be clicked on once it appears in history.
+
+## Contributors
+jdeleonardis
+
+## Tests
+N/A
+
+## License
+This project is licensed under ![badge](https://img.shields.io/badge/License-MIT-blue).
