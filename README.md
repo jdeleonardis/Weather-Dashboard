@@ -1,5 +1,13 @@
-# homework_6_weather_dashboard
-Homework 6
+# Project Title
+Weather Dashboard
+
+## Table of Contents:
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Contributors](#Contributors)
+- [Tests](#Tests)
+- [License](#License)
 
 # Description
 This is my submitted work for Homework 6 - Weather Dashboard.  The assignment was to create a weather dashboard that uses a weather api, builds the current weather and 5 day forecast dynamically, as well as save the cities searched.
