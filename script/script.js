@@ -80,7 +80,7 @@ $(document).ready(function() {
             
             //getting the actual uv index is a little more painful.  The current weather api doesnt have the uv - gotta hit a different
             //api for that using the location coordinates.  Get those from the current weather api and pass them to the uv api.  Then,
-            //build the elements
+            //build the elements 
             var latValue = todaysWeather.coord.lat;
             var lonValue = todaysWeather.coord.lon;
 
