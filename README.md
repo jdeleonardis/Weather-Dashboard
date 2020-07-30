@@ -3,7 +3,6 @@ Weather Dashboard
 
 ## Table of Contents:
 - [Description](#Description)
-- [Installation](#Installation)
 - [Usage](#Usage)
 - [Contributors](#Contributors)
 - [Tests](#Tests)
