@@ -23,7 +23,7 @@ The dashboard should:
 * The current weather is a bootstrap card.  Additionally, the 5 days forecast are 5 bootstrap cards.
 * The search button/icon came from Fontawesome.com.
 
-# Usage
-Website can be accessed at: https://jdeleonardis.github.io/homework_6_weather_dashboard/
+## Usage
+Website can be accessed at: https://jdeleonardis.github.io/Weather-Dashboard/
 
 To use the website, enter a city name and press enter or click the search icon.  Additionally, a city can be clicked on once it appears in history.
