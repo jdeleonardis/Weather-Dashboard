@@ -17,6 +17,8 @@ The dashboard should:
 * Weather should contain icons representing the weather, temperature, humidity, wind speed
 * The UV value returned should be color coded based on the UV index
 
+![App Image](https://user-images.githubusercontent.com/58078950/88950662-f0fd9500-d262-11ea-8eb5-d45b21d60fe2.png)
+
 
 ### Extra Information
 * No code was given for this project and all was created from scratch.  I used the bootstrap grid system to build the site.
